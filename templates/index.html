@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nola. — Advanced Bank Management System | Oracle Database (BACSE202)</title>
+  <title>Advanced Bank Management System</title>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -53,13 +56,16 @@
       width: 6px;
       height: 6px;
     }
+
     ::-webkit-scrollbar-track {
       background: #0A0F0D;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #1E2D27;
       border-radius: 9999px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: #34D399;
     }
@@ -70,6 +76,7 @@
       border: 1px solid #1E2D27;
       border-radius: 16px;
     }
+
     .nola-inset {
       background-color: #0D1411;
       border: 1px solid #1E2D27;
@@ -78,9 +85,19 @@
 
     /* Subtle pulse animation for Oracle connection */
     @keyframes pulse-emerald {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.92); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.92);
+      }
     }
+
     .status-pulse {
       animation: pulse-emerald 2s infinite ease-in-out;
     }
@@ -92,17 +109,21 @@
     }
   </style>
 </head>
-<body class="bg-canvas text-gray-200 font-sans antialiased min-h-screen flex flex-col md:flex-row selection:bg-emerald-500 selection:text-black">
+
+<body
+  class="bg-canvas text-gray-200 font-sans antialiased min-h-screen flex flex-col md:flex-row selection:bg-emerald-500 selection:text-black">
 
   <!-- =========================================================================
        LEFT SIDEBAR NAVIGATION
        ========================================================================= -->
-  <aside class="w-full md:w-64 bg-[#0B120F] border-b md:border-b-0 md:border-r border-border-card flex flex-col justify-between shrink-0 md:h-screen md:sticky md:top-0 z-30">
+  <aside
+    class="w-full md:w-64 bg-[#0B120F] border-b md:border-b-0 md:border-r border-border-card flex flex-col justify-between shrink-0 md:h-screen md:sticky md:top-0 z-30">
     <!-- Top Branding & Navigation Links -->
     <div class="p-5 flex flex-col gap-6">
       <!-- Brand Header -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-sidebar-active border border-border-card flex items-center justify-center text-emerald-accent shadow-sm">
+        <div
+          class="w-10 h-10 rounded-xl bg-sidebar-active border border-border-card flex items-center justify-center text-emerald-accent shadow-sm">
           <i data-lucide="landmark" class="w-5 h-5"></i>
         </div>
         <div>
@@ -110,38 +131,48 @@
             <span class="text-xl font-bold tracking-tight text-white">DBMS Project</span>
             <span class="w-2 h-2 rounded-full bg-emerald-accent inline-block"></span>
           </div>
-          <p class="text-[10px] font-mono tracking-wider text-emerald-400/70 font-semibold uppercase">VIT DBMS • BACSE202</p>
+          <p class="text-[10px] font-mono tracking-wider text-emerald-400/70 font-semibold uppercase">VIT DBMS •
+            BACSE202</p>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <nav class="flex flex-col gap-1.5 font-medium text-xs">
-        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 py-1 font-semibold">Main Dashboard</p>
-        <button id="nav-tab-overview" onclick="switchTab('overview')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 bg-sidebar-active text-emerald-accent shadow-inner">
+        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 py-1 font-semibold">Main Dashboard
+        </p>
+        <button id="nav-tab-overview" onclick="switchTab('overview')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 bg-sidebar-active text-emerald-accent shadow-inner">
           <i data-lucide="layout-grid" class="w-4 h-4"></i>
           <span>Overview</span>
         </button>
 
-        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 pt-3 pb-1 font-semibold">Viva Modules (Teammates)</p>
-        <button id="nav-tab-mod1" onclick="switchTab('mod1')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
+        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 pt-3 pb-1 font-semibold">Viva
+          Modules (Teammates)</p>
+        <button id="nav-tab-mod1" onclick="switchTab('mod1')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
           <i data-lucide="users" class="w-4 h-4"></i>
           <span class="text-left leading-tight">Module 1: Core Accounts</span>
         </button>
-        <button id="nav-tab-mod2" onclick="switchTab('mod2')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
+        <button id="nav-tab-mod2" onclick="switchTab('mod2')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
           <i data-lucide="credit-card" class="w-4 h-4"></i>
           <span class="text-left leading-tight">Module 2: Cards & Transfers</span>
         </button>
-        <button id="nav-tab-mod3" onclick="switchTab('mod3')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
+        <button id="nav-tab-mod3" onclick="switchTab('mod3')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
           <i data-lucide="wallet" class="w-4 h-4"></i>
           <span class="text-left leading-tight">Module 3: Loans & FDs</span>
         </button>
-        <button id="nav-tab-mod4" onclick="switchTab('mod4')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
+        <button id="nav-tab-mod4" onclick="switchTab('mod4')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
           <i data-lucide="building-2" class="w-4 h-4"></i>
           <span class="text-left leading-tight">Module 4: Branch & Support</span>
         </button>
 
-        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 pt-3 pb-1 font-semibold">Advanced Engine</p>
-        <button id="nav-tab-plsql" onclick="switchTab('plsql')" class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
+        <p class="text-[10px] font-mono uppercase tracking-wider text-gray-500 px-3 pt-3 pb-1 font-semibold">Advanced
+          Engine</p>
+        <button id="nav-tab-plsql" onclick="switchTab('plsql')"
+          class="nav-tab flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-150 text-gray-400 hover:text-gray-200 hover:bg-[#111916]">
           <i data-lucide="terminal" class="w-4 h-4"></i>
           <span class="text-left leading-tight">PL/SQL & Cursor Lab</span>
         </button>
@@ -151,7 +182,8 @@
     <!-- Bottom Customer Profile Card -->
     <div class="p-4 border-t border-border-card">
       <div class="nola-inset p-3 flex items-center gap-3">
-        <div id="profile-avatar" class="w-9 h-9 rounded-full bg-sidebar-active border border-[#34D399]/40 flex items-center justify-center font-bold text-xs text-emerald-accent">
+        <div id="profile-avatar"
+          class="w-9 h-9 rounded-full bg-sidebar-active border border-[#34D399]/40 flex items-center justify-center font-bold text-xs text-emerald-accent">
           AS
         </div>
         <div class="overflow-hidden flex-1">
@@ -177,7 +209,8 @@
        ========================================================================= -->
   <main class="flex-1 flex flex-col min-w-0 bg-canvas overflow-y-auto pb-32">
     <!-- Top Header Navigation Bar -->
-    <header class="px-6 py-4 md:px-8 border-b border-border-card/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sticky top-0 bg-canvas/90 backdrop-blur-md z-20">
+    <header
+      class="px-6 py-4 md:px-8 border-b border-border-card/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sticky top-0 bg-canvas/90 backdrop-blur-md z-20">
       <div>
         <p id="top-date" class="text-[11px] font-mono uppercase tracking-wider text-gray-400">Sunday, 18 Oct 2026</p>
         <h1 id="top-greeting" class="text-lg md:text-xl font-bold text-white tracking-tight">Good morning, Aarav</h1>
@@ -188,22 +221,26 @@
         <!-- Live Customer Switcher Dropdown -->
         <div class="relative">
           <label for="customer-select" class="sr-only">Switch Customer</label>
-          <div class="flex items-center gap-2 px-3 py-1.5 bg-card border border-border-card rounded-xl text-xs font-medium text-gray-300">
+          <div
+            class="flex items-center gap-2 px-3 py-1.5 bg-card border border-border-card rounded-xl text-xs font-medium text-gray-300">
             <i data-lucide="user" class="w-3.5 h-3.5 text-emerald-accent"></i>
-            <select id="customer-select" onchange="onCustomerChange(this.value)" class="bg-transparent text-gray-200 border-none outline-none focus:ring-0 cursor-pointer pr-4 font-mono text-xs">
+            <select id="customer-select" onchange="onCustomerChange(this.value)"
+              class="bg-transparent text-gray-200 border-none outline-none focus:ring-0 cursor-pointer pr-4 font-mono text-xs">
               <option value="1001" class="bg-[#111916] text-white">Loading customers...</option>
             </select>
           </div>
         </div>
 
         <!-- Run Branch Cursor Report Button -->
-        <button onclick="openCursorModal()" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-300 hover:text-emerald-accent hover:border-emerald-accent/40 transition-all duration-150">
+        <button onclick="openCursorModal()"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-300 hover:text-emerald-accent hover:border-emerald-accent/40 transition-all duration-150">
           <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-accent"></i>
           <span>Run Branch Cursor</span>
         </button>
 
         <!-- New Transfer Emerald Button -->
-        <button onclick="openTransferModal()" class="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-btn-primary text-emerald-light border border-emerald-accent/30 hover:bg-[#20493c] transition-all duration-150 text-xs font-semibold shadow-sm">
+        <button onclick="openTransferModal()"
+          class="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-btn-primary text-emerald-light border border-emerald-accent/30 hover:bg-[#20493c] transition-all duration-150 text-xs font-semibold shadow-sm">
           <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
           <span>+ New transfer</span>
         </button>
@@ -226,18 +263,21 @@
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2">
                 <span class="text-xs uppercase tracking-wider text-gray-400 font-medium">Total balance</span>
-                <button onclick="toggleBalanceVisibility()" title="Toggle visibility" class="text-gray-500 hover:text-gray-300 transition">
+                <button onclick="toggleBalanceVisibility()" title="Toggle visibility"
+                  class="text-gray-500 hover:text-gray-300 transition">
                   <i id="balance-eye-icon" data-lucide="eye" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
-              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-sidebar-active text-emerald-accent border border-emerald-500/20">
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-sidebar-active text-emerald-accent border border-emerald-500/20">
                 <i data-lucide="trending-up" class="w-3 h-3"></i>
                 <span>+8.4% from last month</span>
               </span>
             </div>
 
             <div class="flex items-baseline gap-3 my-1">
-              <h2 id="overview-total-balance" class="text-3xl md:text-4xl font-extrabold text-white font-mono tracking-tight">₹0.00</h2>
+              <h2 id="overview-total-balance"
+                class="text-3xl md:text-4xl font-extrabold text-white font-mono tracking-tight">₹0.00</h2>
               <span class="text-xs font-mono text-gray-500">across all accounts</span>
             </div>
           </div>
@@ -247,8 +287,10 @@
             <div class="flex items-center justify-between text-xs mb-3 text-gray-400">
               <span class="font-mono text-[11px]">6-Month Transaction Activity Trend</span>
               <div class="flex items-center gap-3 text-[11px] font-mono">
-                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-400"></span> Credits</span>
-                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#F87171]"></span> Debits</span>
+                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-400"></span>
+                  Credits</span>
+                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#F87171]"></span>
+                  Debits</span>
               </div>
             </div>
             <div class="h-56 relative w-full">
@@ -262,7 +304,8 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs uppercase tracking-wider text-gray-400 font-medium">Account details</span>
-              <span id="account-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">
+              <span id="account-status-badge"
+                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 status-pulse"></span>
                 ACTIVE
               </span>
@@ -272,13 +315,16 @@
             <div class="nola-inset p-3.5 mb-5 flex items-center justify-between">
               <div>
                 <p class="text-[10px] font-mono uppercase text-gray-500 tracking-wider">Primary Account Number</p>
-                <p id="account-no-display" class="text-base font-bold font-mono text-white tracking-widest mt-0.5">•••• ••2011</p>
+                <p id="account-no-display" class="text-base font-bold font-mono text-white tracking-widest mt-0.5">••••
+                  ••2011</p>
               </div>
               <div class="flex items-center gap-2">
-                <button onclick="toggleAccountMask()" title="Show/Hide Account" class="p-2 rounded-lg bg-card hover:bg-[#1a2520] border border-border-card text-gray-400 hover:text-emerald-accent transition">
+                <button onclick="toggleAccountMask()" title="Show/Hide Account"
+                  class="p-2 rounded-lg bg-card hover:bg-[#1a2520] border border-border-card text-gray-400 hover:text-emerald-accent transition">
                   <i id="acc-mask-icon" data-lucide="eye" class="w-3.5 h-3.5"></i>
                 </button>
-                <button onclick="copyAccountNumber()" title="Copy Account" class="p-2 rounded-lg bg-card hover:bg-[#1a2520] border border-border-card text-gray-400 hover:text-emerald-accent transition">
+                <button onclick="copyAccountNumber()" title="Copy Account"
+                  class="p-2 rounded-lg bg-card hover:bg-[#1a2520] border border-border-card text-gray-400 hover:text-emerald-accent transition">
                   <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
@@ -310,7 +356,9 @@
             <span class="text-gray-400">Customer Age</span>
             <div class="flex items-center gap-2">
               <span id="meta-age" class="font-mono font-bold text-white">24 yrs</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-sidebar-active text-emerald-accent border border-emerald-500/20" title="Calculated live via PL/SQL function fn_get_customer_age">
+              <span
+                class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-sidebar-active text-emerald-accent border border-emerald-500/20"
+                title="Calculated live via PL/SQL function fn_get_customer_age">
                 fn_get_customer_age
               </span>
             </div>
@@ -323,7 +371,9 @@
             <div class="flex items-center justify-between mb-4">
               <div class="flex items-center gap-2">
                 <span class="text-xs uppercase tracking-wider text-gray-400 font-medium">Recent transactions</span>
-                <span id="txns-count-badge" class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-inset border border-border-card text-gray-400">10 entries</span>
+                <span id="txns-count-badge"
+                  class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-inset border border-border-card text-gray-400">10
+                  entries</span>
               </div>
               <span class="text-[11px] font-mono text-gray-500">FETCH FIRST 10 ROWS</span>
             </div>
@@ -356,7 +406,8 @@
                   </div>
                   <p class="text-[10px] text-emerald-400/60 font-mono mt-0.5">Deposits & incoming</p>
                 </div>
-                <p id="cashflow-income-val" class="text-lg md:text-xl font-bold font-mono text-emerald-300 mt-3">₹0.00</p>
+                <p id="cashflow-income-val" class="text-lg md:text-xl font-bold font-mono text-emerald-300 mt-3">₹0.00
+                </p>
               </div>
 
               <!-- Tinted Coral Box: Debits / Withdrawals -->
@@ -378,7 +429,8 @@
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-xs uppercase tracking-wider text-gray-400 font-medium">Loan EMI & FD Tracker</span>
-                <span id="loan-status-tag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-inset border border-border-card text-emerald-400">Active</span>
+                <span id="loan-status-tag"
+                  class="text-[10px] font-mono px-2 py-0.5 rounded bg-inset border border-border-card text-emerald-400">Active</span>
               </div>
 
               <!-- Loan Repayment Progress -->
@@ -388,14 +440,16 @@
                   <span id="loan-repaid-pct" class="font-mono text-emerald-accent font-semibold">0% repaid</span>
                 </div>
                 <div class="w-full bg-[#18231e] rounded-full h-2 overflow-hidden">
-                  <div id="loan-progress-bar" class="bg-emerald-accent h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                  <div id="loan-progress-bar" class="bg-emerald-accent h-2 rounded-full transition-all duration-500"
+                    style="width: 0%"></div>
                 </div>
                 <div class="flex items-center justify-between text-[11px] font-mono text-gray-500 mt-2">
                   <span id="loan-paid-val">Paid: ₹0</span>
                   <span id="loan-principal-val">Principal: ₹0</span>
                 </div>
                 <div class="mt-3 flex justify-end">
-                  <button onclick="openEmiModal()" class="px-3 py-1 rounded-lg bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition">
+                  <button onclick="openEmiModal()"
+                    class="px-3 py-1 rounded-lg bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition">
                     <i data-lucide="zap" class="w-3 h-3"></i>
                     <span>Pay EMI</span>
                   </button>
@@ -406,7 +460,9 @@
               <div class="nola-inset p-3.5">
                 <div class="flex items-center justify-between text-xs">
                   <span class="text-gray-400">Fixed Deposit (FD)</span>
-                  <span class="text-[10px] font-mono text-emerald-400 font-semibold px-2 py-0.5 bg-sidebar-active rounded" title="Computed with fn_calc_fd_maturity_value">fn_calc_fd_maturity_value</span>
+                  <span
+                    class="text-[10px] font-mono text-emerald-400 font-semibold px-2 py-0.5 bg-sidebar-active rounded"
+                    title="Computed with fn_calc_fd_maturity_value">fn_calc_fd_maturity_value</span>
                 </div>
                 <div class="mt-2 flex items-baseline justify-between">
                   <div>
@@ -434,11 +490,14 @@
       <!-- Header Banner -->
       <div class="nola-card p-5 border-l-4 border-l-emerald-accent flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 1 Viva Section</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 1 Viva
+            Section</span>
           <h2 class="text-lg font-bold text-white">Module 1: Core Banking & Transactions</h2>
-          <p class="text-xs text-gray-400 mt-0.5">Tables: CUSTOMER, CUSTOMER_PHONE, ACCOUNT, CUSTOMER_ACCOUNT, TRANSACTION</p>
+          <p class="text-xs text-gray-400 mt-0.5">Tables: CUSTOMER, CUSTOMER_PHONE, ACCOUNT, CUSTOMER_ACCOUNT,
+            TRANSACTION</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
+        <span
+          class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
           DML + 5 Complex SELECTs
         </span>
       </div>
@@ -449,23 +508,27 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Open New Account</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Creates an ACCOUNT record and associates it via CUSTOMER_ACCOUNT.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Customer ID</label>
-                <input id="m1-ins-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-ins-cid" type="number" value="1001"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Account No</label>
-                <input id="m1-ins-acc" type="number" value="10042021" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-ins-acc" type="number" value="10042021"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Type</label>
-                  <select id="m1-ins-type" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                  <select id="m1-ins-type"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
                     <option value="Savings">Savings</option>
                     <option value="Current">Current</option>
                     <option value="Salary">Salary</option>
@@ -473,16 +536,19 @@
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Initial Balance</label>
-                  <input id="m1-ins-bal" type="number" value="25000" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m1-ins-bal" type="number" value="25000"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Branch ID</label>
-                <input id="m1-ins-branch" type="number" value="101" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-ins-branch" type="number" value="101"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule1DML('insert')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule1DML('insert')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -492,18 +558,21 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Account Status</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Modifies the status of an existing account in ACCOUNT table.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Account No</label>
-                <input id="m1-upd-acc" type="number" value="10042011" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-upd-acc" type="number" value="10042011"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">New Status</label>
-                <select id="m1-upd-status" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                <select id="m1-upd-status"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                   <option value="Dormant">Dormant</option>
@@ -512,7 +581,8 @@
               </div>
             </div>
           </div>
-          <button onclick="executeModule1DML('update')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule1DML('update')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -522,22 +592,26 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Remove Phone</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Demonstrates composite PK deletion from CUSTOMER_PHONE.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Customer ID</label>
-                <input id="m1-del-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-del-cid" type="number" value="1001"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Phone Number to Remove</label>
-                <input id="m1-del-phone" type="text" value="9876543210" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m1-del-phone" type="text" value="9876543210"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule1DML('delete')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule1DML('delete')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -547,20 +621,27 @@
       <!-- Bottom Row: 5 Query Pill Buttons & Interactive Data Display -->
       <div class="nola-card p-6 flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 1 Complex SELECT Queries</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 1 Complex SELECT
+            Queries</span>
           <!-- 5 Pill Buttons -->
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="runModuleQuery(1, 1)" class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q1</button>
-            <button onclick="runModuleQuery(1, 2)" class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q2</button>
-            <button onclick="runModuleQuery(1, 3)" class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q3</button>
-            <button onclick="runModuleQuery(1, 4)" class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q4</button>
-            <button onclick="runModuleQuery(1, 5)" class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q5</button>
+            <button onclick="runModuleQuery(1, 1)"
+              class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q1</button>
+            <button onclick="runModuleQuery(1, 2)"
+              class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q2</button>
+            <button onclick="runModuleQuery(1, 3)"
+              class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q3</button>
+            <button onclick="runModuleQuery(1, 4)"
+              class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q4</button>
+            <button onclick="runModuleQuery(1, 5)"
+              class="q-btn-1 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M1-Q5</button>
           </div>
         </div>
 
         <!-- Query Execution Results Area -->
         <div id="m1-query-result" class="mt-2 flex flex-col gap-3">
-          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M1-Q1) to execute live against Oracle.</p>
+          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M1-Q1) to execute
+            live against Oracle.</p>
         </div>
       </div>
     </div>
@@ -572,11 +653,13 @@
       <!-- Header Banner -->
       <div class="nola-card p-5 border-l-4 border-l-emerald-accent flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 2 Viva Section</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 2 Viva
+            Section</span>
           <h2 class="text-lg font-bold text-white">Module 2: Cards, Beneficiaries & Fund Transfers</h2>
           <p class="text-xs text-gray-400 mt-0.5">Tables: CARD, BENEFICIARY, FUND_TRANSFER</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
+        <span
+          class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
           DML + 5 Complex SELECTs
         </span>
       </div>
@@ -587,30 +670,36 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Register Beneficiary</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Adds a new payee for fund transfers in BENEFICIARY.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Customer ID</label>
-                <input id="m2-ins-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-ins-cid" type="number" value="1001"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Beneficiary Name</label>
-                <input id="m2-ins-name" type="text" value="Rohit Verma" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-ins-name" type="text" value="Rohit Verma"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Account No</label>
-                <input id="m2-ins-acc" type="number" value="20084019" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-ins-acc" type="number" value="20084019"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">IFSC Code</label>
-                <input id="m2-ins-ifsc" type="text" value="NOLA0000102" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-ins-ifsc" type="text" value="NOLA0000102"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule2DML('insert')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule2DML('insert')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -620,18 +709,21 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Card Status</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Block or reactivate a debit/credit card in CARD table.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Card ID</label>
-                <input id="m2-upd-card" type="number" value="501" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-upd-card" type="number" value="501"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">New Status</label>
-                <select id="m2-upd-status" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                <select id="m2-upd-status"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
                   <option value="Active">Active</option>
                   <option value="Blocked">Blocked</option>
                   <option value="Expired">Expired</option>
@@ -639,7 +731,8 @@
               </div>
             </div>
           </div>
-          <button onclick="executeModule2DML('update')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule2DML('update')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -649,18 +742,21 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Delete Beneficiary</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Removes an unused registered beneficiary.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Beneficiary ID</label>
-                <input id="m2-del-bid" type="number" value="610" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m2-del-bid" type="number" value="610"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule2DML('delete')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule2DML('delete')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -670,18 +766,25 @@
       <!-- Bottom Row: 5 Query Pill Buttons & Result -->
       <div class="nola-card p-6 flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 2 Complex SELECT Queries</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 2 Complex SELECT
+            Queries</span>
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="runModuleQuery(2, 1)" class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q1</button>
-            <button onclick="runModuleQuery(2, 2)" class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q2</button>
-            <button onclick="runModuleQuery(2, 3)" class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q3</button>
-            <button onclick="runModuleQuery(2, 4)" class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q4</button>
-            <button onclick="runModuleQuery(2, 5)" class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q5</button>
+            <button onclick="runModuleQuery(2, 1)"
+              class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q1</button>
+            <button onclick="runModuleQuery(2, 2)"
+              class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q2</button>
+            <button onclick="runModuleQuery(2, 3)"
+              class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q3</button>
+            <button onclick="runModuleQuery(2, 4)"
+              class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q4</button>
+            <button onclick="runModuleQuery(2, 5)"
+              class="q-btn-2 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M2-Q5</button>
           </div>
         </div>
 
         <div id="m2-query-result" class="mt-2 flex flex-col gap-3">
-          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M2-Q1) to execute live against Oracle.</p>
+          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M2-Q1) to execute
+            live against Oracle.</p>
         </div>
       </div>
     </div>
@@ -693,11 +796,13 @@
       <!-- Header Banner -->
       <div class="nola-card p-5 border-l-4 border-l-emerald-accent flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 3 Viva Section</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 3 Viva
+            Section</span>
           <h2 class="text-lg font-bold text-white">Module 3: Loans, EMI Repayments & Fixed Deposits</h2>
           <p class="text-xs text-gray-400 mt-0.5">Tables: LOAN, LOAN_PAYMENT, FIXED_DEPOSIT</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
+        <span
+          class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
           DML + 5 Complex SELECTs
         </span>
       </div>
@@ -708,38 +813,45 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Book Fixed Deposit</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Inserts into FIXED_DEPOSIT with compound maturity.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Customer ID</label>
-                <input id="m3-ins-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m3-ins-cid" type="number" value="1001"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Principal (₹)</label>
-                  <input id="m3-ins-principal" type="number" value="100000" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m3-ins-principal" type="number" value="100000"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Rate (%)</label>
-                  <input id="m3-ins-rate" type="number" step="0.1" value="7.5" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m3-ins-rate" type="number" step="0.1" value="7.5"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Start Date</label>
-                  <input id="m3-ins-start" type="date" value="2026-10-18" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m3-ins-start" type="date" value="2026-10-18"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Maturity Date</label>
-                  <input id="m3-ins-mat" type="date" value="2028-10-18" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m3-ins-mat" type="date" value="2028-10-18"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
               </div>
             </div>
           </div>
-          <button onclick="executeModule3DML('insert')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule3DML('insert')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -749,31 +861,36 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Modify Loan</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Updates Status or Interest Rate on LOAN table.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Loan ID</label>
-                <input id="m3-upd-lid" type="number" value="301" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m3-upd-lid" type="number" value="301"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">Field</label>
-                  <select id="m3-upd-field" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                  <select id="m3-upd-field"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
                     <option value="Status">Status</option>
                     <option value="Interest_Rate">Interest Rate</option>
                   </select>
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-400">New Value</label>
-                  <input id="m3-upd-val" type="text" value="Active" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                  <input id="m3-upd-val" type="text" value="Active"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
                 </div>
               </div>
             </div>
           </div>
-          <button onclick="executeModule3DML('update')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule3DML('update')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -783,18 +900,21 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Close / Delete FD</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Removes an expired or matured FIXED_DEPOSIT record.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">FD ID</label>
-                <input id="m3-del-fdid" type="number" value="210" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m3-del-fdid" type="number" value="210"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule3DML('delete')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule3DML('delete')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -804,18 +924,25 @@
       <!-- Bottom Row: 5 Query Pill Buttons & Result -->
       <div class="nola-card p-6 flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 3 Complex SELECT Queries</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 3 Complex SELECT
+            Queries</span>
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="runModuleQuery(3, 1)" class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q1</button>
-            <button onclick="runModuleQuery(3, 2)" class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q2</button>
-            <button onclick="runModuleQuery(3, 3)" class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q3</button>
-            <button onclick="runModuleQuery(3, 4)" class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q4</button>
-            <button onclick="runModuleQuery(3, 5)" class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q5</button>
+            <button onclick="runModuleQuery(3, 1)"
+              class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q1</button>
+            <button onclick="runModuleQuery(3, 2)"
+              class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q2</button>
+            <button onclick="runModuleQuery(3, 3)"
+              class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q3</button>
+            <button onclick="runModuleQuery(3, 4)"
+              class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q4</button>
+            <button onclick="runModuleQuery(3, 5)"
+              class="q-btn-3 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M3-Q5</button>
           </div>
         </div>
 
         <div id="m3-query-result" class="mt-2 flex flex-col gap-3">
-          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M3-Q1) to execute live against Oracle.</p>
+          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M3-Q1) to execute
+            live against Oracle.</p>
         </div>
       </div>
     </div>
@@ -827,11 +954,13 @@
       <!-- Header Banner -->
       <div class="nola-card p-5 border-l-4 border-l-emerald-accent flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 4 Viva Section</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Team Member 4 Viva
+            Section</span>
           <h2 class="text-lg font-bold text-white">Module 4: Branches, Employees & Customer Support</h2>
           <p class="text-xs text-gray-400 mt-0.5">Tables: BRANCH, EMPLOYEE, COMPLAINT</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
+        <span
+          class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
           DML + 5 Complex SELECTs
         </span>
       </div>
@@ -842,22 +971,26 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-accent border border-emerald-500/30">INSERT</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">File Complaint</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Creates a new grievance in COMPLAINT table.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Customer ID</label>
-                <input id="m4-ins-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m4-ins-cid" type="number" value="1001"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Description</label>
-                <textarea id="m4-ins-desc" rows="3" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">ATM cash dispensation failure at Katpadi branch.</textarea>
+                <textarea id="m4-ins-desc" rows="3"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">ATM cash dispensation failure at Katpadi branch.</textarea>
               </div>
             </div>
           </div>
-          <button onclick="executeModule4DML('insert')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule4DML('insert')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -867,20 +1000,24 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">UPDATE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Update Status</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">
-              <span class="text-emerald-400 font-semibold">Note:</span> Setting to 'Resolved' auto-stamps Resolution_Date via <span class="font-mono text-emerald-300">trg_auto_complaint_resolution</span>!
+              <span class="text-emerald-400 font-semibold">Note:</span> Setting to 'Resolved' auto-stamps
+              Resolution_Date via <span class="font-mono text-emerald-300">trg_auto_complaint_resolution</span>!
             </p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Complaint ID</label>
-                <input id="m4-upd-cmpid" type="number" value="901" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m4-upd-cmpid" type="number" value="901"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-400">New Status</label>
-                <select id="m4-upd-status" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
+                <select id="m4-upd-status"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs focus:border-emerald-accent outline-none">
                   <option value="Resolved">Resolved (Fires Trigger Date Stamp)</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Open">Open</option>
@@ -888,7 +1025,8 @@
               </div>
             </div>
           </div>
-          <button onclick="executeModule4DML('update')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule4DML('update')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -898,18 +1036,21 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-400 border border-red-500/30">DELETE</span>
               <h3 class="text-xs font-bold text-white uppercase tracking-wider">Dismiss Complaint</h3>
             </div>
             <p class="text-xs text-gray-400 mb-3">Removes a complaint record from COMPLAINT.</p>
             <div class="flex flex-col gap-2.5 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-400">Complaint ID</label>
-                <input id="m4-del-cmpid" type="number" value="910" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
+                <input id="m4-del-cmpid" type="number" value="910"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs focus:border-emerald-accent outline-none">
               </div>
             </div>
           </div>
-          <button onclick="executeModule4DML('delete')" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="executeModule4DML('delete')"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute in Oracle</span>
           </button>
@@ -919,18 +1060,25 @@
       <!-- Bottom Row: 5 Query Pill Buttons & Result -->
       <div class="nola-card p-6 flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 4 Complex SELECT Queries</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Teammate 4 Complex SELECT
+            Queries</span>
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="runModuleQuery(4, 1)" class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q1</button>
-            <button onclick="runModuleQuery(4, 2)" class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q2</button>
-            <button onclick="runModuleQuery(4, 3)" class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q3</button>
-            <button onclick="runModuleQuery(4, 4)" class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q4</button>
-            <button onclick="runModuleQuery(4, 5)" class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q5</button>
+            <button onclick="runModuleQuery(4, 1)"
+              class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q1</button>
+            <button onclick="runModuleQuery(4, 2)"
+              class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q2</button>
+            <button onclick="runModuleQuery(4, 3)"
+              class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q3</button>
+            <button onclick="runModuleQuery(4, 4)"
+              class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q4</button>
+            <button onclick="runModuleQuery(4, 5)"
+              class="q-btn-4 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-border-card bg-inset hover:border-emerald-accent text-gray-300">M4-Q5</button>
           </div>
         </div>
 
         <div id="m4-query-result" class="mt-2 flex flex-col gap-3">
-          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M4-Q1) to execute live against Oracle.</p>
+          <p class="text-xs text-gray-500 italic py-8 text-center">Click any query pill above (e.g. M4-Q1) to execute
+            live against Oracle.</p>
         </div>
       </div>
     </div>
@@ -942,11 +1090,14 @@
       <!-- Header Banner -->
       <div class="nola-card p-5 border-l-4 border-l-emerald-accent flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Interactive Oracle PL/SQL Testbed</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Interactive Oracle
+            PL/SQL Testbed</span>
           <h2 class="text-lg font-bold text-white">PL/SQL & Cursor Lab</h2>
-          <p class="text-xs text-gray-400 mt-0.5">Live evaluation of 2 Stored Procedures, 2 Stored Functions, 1 Explicit Cursor, and 2 Triggers.</p>
+          <p class="text-xs text-gray-400 mt-0.5">Live evaluation of 2 Stored Procedures, 2 Stored Functions, 1 Explicit
+            Cursor, and 2 Triggers.</p>
         </div>
-        <span class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
+        <span
+          class="px-3 py-1 rounded-full bg-sidebar-active text-emerald-accent border border-emerald-500/20 text-xs font-mono font-medium">
           Professor Viva Checklist
         </span>
       </div>
@@ -958,29 +1109,36 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-accent border border-emerald-500/20">PROCEDURE 1</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-accent border border-emerald-500/20">PROCEDURE
+                1</span>
               <span class="text-[10px] font-mono text-gray-500">sp_process_fund_transfer</span>
             </div>
             <h3 class="text-sm font-bold text-white">Live Fund Transfer</h3>
-            <p class="text-xs text-gray-400 mt-1 mb-3">Debits ACCOUNT, inserts into FUND_TRANSFER & TRANSACTION, fires minimum balance trigger.</p>
+            <p class="text-xs text-gray-400 mt-1 mb-3">Debits ACCOUNT, inserts into FUND_TRANSFER & TRANSACTION, fires
+              minimum balance trigger.</p>
 
             <div class="flex flex-col gap-2 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-500">Source Account</label>
-                <input id="lab-p1-acc" type="number" value="10042011" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+                <input id="lab-p1-acc" type="number" value="10042011"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
               </div>
               <div>
                 <label class="text-[10px] font-mono text-gray-500">Beneficiary ID</label>
-                <input id="lab-p1-bene" type="number" value="601" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+                <input id="lab-p1-bene" type="number" value="601"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-500">Amount (₹)</label>
-                  <input id="lab-p1-amt" type="number" value="5000" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+                  <input id="lab-p1-amt" type="number" value="5000"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-500">Mode</label>
-                  <select id="lab-p1-mode" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs">
+                  <select id="lab-p1-mode"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs">
                     <option value="UPI">UPI</option>
                     <option value="NEFT">NEFT</option>
                     <option value="RTGS">RTGS</option>
@@ -991,11 +1149,13 @@
             </div>
           </div>
           <div class="mt-4 flex flex-col gap-2">
-            <button onclick="testLabTransfer()" class="w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+            <button onclick="testLabTransfer()"
+              class="w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
               <i data-lucide="play" class="w-3.5 h-3.5"></i>
               <span>Execute sp_process_fund_transfer</span>
             </button>
-            <button onclick="testMinBalanceBreach()" class="w-full py-1.5 bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-700/30 rounded-xl text-[11px] font-mono flex items-center justify-center gap-1.5 transition">
+            <button onclick="testMinBalanceBreach()"
+              class="w-full py-1.5 bg-red-950/40 hover:bg-red-900/50 text-red-300 border border-red-700/30 rounded-xl text-[11px] font-mono flex items-center justify-center gap-1.5 transition">
               <i data-lucide="alert-triangle" class="w-3 h-3 text-red-400"></i>
               <span>Test Min-Balance Breach (Trigger Demo)</span>
             </button>
@@ -1006,25 +1166,31 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-accent border border-emerald-500/20">PROCEDURE 2</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-accent border border-emerald-500/20">PROCEDURE
+                2</span>
               <span class="text-[10px] font-mono text-gray-500">sp_pay_loan_emi</span>
             </div>
             <h3 class="text-sm font-bold text-white">Pay Loan EMI</h3>
-            <p class="text-xs text-gray-400 mt-1 mb-3">Records installment in LOAN_PAYMENT and auto-closes LOAN if fully repaid.</p>
+            <p class="text-xs text-gray-400 mt-1 mb-3">Records installment in LOAN_PAYMENT and auto-closes LOAN if fully
+              repaid.</p>
 
             <div class="flex flex-col gap-2 text-xs">
               <div>
                 <label class="text-[10px] font-mono text-gray-500">Loan ID</label>
-                <input id="lab-p2-lid" type="number" value="301" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+                <input id="lab-p2-lid" type="number" value="301"
+                  class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
               </div>
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="text-[10px] font-mono text-gray-500">Amount (₹)</label>
-                  <input id="lab-p2-amt" type="number" value="10000" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+                  <input id="lab-p2-amt" type="number" value="10000"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
                 </div>
                 <div>
                   <label class="text-[10px] font-mono text-gray-500">Mode</label>
-                  <select id="lab-p2-mode" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs">
+                  <select id="lab-p2-mode"
+                    class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white text-xs">
                     <option value="UPI">UPI</option>
                     <option value="NEFT">NEFT</option>
                     <option value="Auto-Debit">Auto-Debit</option>
@@ -1034,7 +1200,8 @@
               </div>
             </div>
           </div>
-          <button onclick="testLabPayEmi()" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="testLabPayEmi()"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Execute sp_pay_loan_emi</span>
           </button>
@@ -1044,18 +1211,22 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">EXPLICIT CURSOR</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">EXPLICIT
+                CURSOR</span>
               <span class="text-[10px] font-mono text-gray-500">cur_branch_performance</span>
             </div>
             <h3 class="text-sm font-bold text-white">Branch Audit Cursor</h3>
-            <p class="text-xs text-gray-400 mt-1 mb-3">Aggregates all 10 branches: total accounts, cumulative deposit balance, and total staff count.</p>
+            <p class="text-xs text-gray-400 mt-1 mb-3">Aggregates all 10 branches: total accounts, cumulative deposit
+              balance, and total staff count.</p>
             <div class="nola-inset p-3 text-xs font-mono text-gray-400">
               <p>• Cursor Type: EXPLICIT CURSOR</p>
               <p>• Tables: BRANCH, ACCOUNT, EMPLOYEE</p>
               <p>• Iteration: OPEN, FETCH, EXIT WHEN NOTFOUND, CLOSE</p>
             </div>
           </div>
-          <button onclick="openCursorModal()" class="mt-4 w-full py-2 bg-purple-950/40 hover:bg-purple-900/50 text-purple-300 border border-purple-700/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="openCursorModal()"
+            class="mt-4 w-full py-2 bg-purple-950/40 hover:bg-purple-900/50 text-purple-300 border border-purple-700/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="play" class="w-3.5 h-3.5"></i>
             <span>Run cur_branch_performance</span>
           </button>
@@ -1065,20 +1236,25 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">FUNCTION 1</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">FUNCTION
+                1</span>
               <span class="text-[10px] font-mono text-gray-500">fn_get_customer_age</span>
             </div>
             <h3 class="text-sm font-bold text-white">Derived Customer Age</h3>
-            <p class="text-xs text-gray-400 mt-1 mb-3">Calculates exact whole-year age dynamically via MONTHS_BETWEEN(SYSDATE, Date_of_Birth) / 12.</p>
+            <p class="text-xs text-gray-400 mt-1 mb-3">Calculates exact whole-year age dynamically via
+              MONTHS_BETWEEN(SYSDATE, Date_of_Birth) / 12.</p>
             <div class="text-xs">
               <label class="text-[10px] font-mono text-gray-500">Customer ID</label>
-              <input id="lab-fn-age-cid" type="number" value="1001" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+              <input id="lab-fn-age-cid" type="number" value="1001"
+                class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
             </div>
             <div id="lab-fn-age-res" class="mt-3 nola-inset p-3 text-xs font-mono text-emerald-400 hidden">
               Result: --
             </div>
           </div>
-          <button onclick="testCustomerAgeFunc()" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="testCustomerAgeFunc()"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
             <span>Evaluate fn_get_customer_age</span>
           </button>
@@ -1088,20 +1264,25 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">FUNCTION 2</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">FUNCTION
+                2</span>
               <span class="text-[10px] font-mono text-gray-500">fn_calc_fd_maturity_value</span>
             </div>
             <h3 class="text-sm font-bold text-white">FD Compound Maturity</h3>
-            <p class="text-xs text-gray-400 mt-1 mb-3">Calculates compound value: Principal * (1 + Rate/100)^(Months/12) in Oracle.</p>
+            <p class="text-xs text-gray-400 mt-1 mb-3">Calculates compound value: Principal * (1 + Rate/100)^(Months/12)
+              in Oracle.</p>
             <div class="text-xs">
               <label class="text-[10px] font-mono text-gray-500">Fixed Deposit ID</label>
-              <input id="lab-fn-fd-id" type="number" value="201" class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
+              <input id="lab-fn-fd-id" type="number" value="201"
+                class="w-full mt-1 p-2 bg-inset border border-border-card rounded-lg text-white font-mono text-xs">
             </div>
             <div id="lab-fn-fd-res" class="mt-3 nola-inset p-3 text-xs font-mono text-emerald-400 hidden">
               Result: --
             </div>
           </div>
-          <button onclick="testFdMaturityFunc()" class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+          <button onclick="testFdMaturityFunc()"
+            class="mt-4 w-full py-2 bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
             <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
             <span>Evaluate fn_calc_fd_maturity_value</span>
           </button>
@@ -1111,26 +1292,32 @@
         <div class="nola-card p-5 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">TRIGGERS 1 & 2</span>
+              <span
+                class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">TRIGGERS
+                1 & 2</span>
               <span class="text-[10px] font-mono text-gray-500">Row-Level BEFORE</span>
             </div>
             <h3 class="text-sm font-bold text-white">Active Database Triggers</h3>
             <div class="flex flex-col gap-2.5 mt-3 text-xs">
               <div class="p-2 rounded-lg bg-inset border border-border-card/60">
                 <p class="font-mono text-emerald-400 text-[11px] font-semibold">trg_prevent_min_balance_breach</p>
-                <p class="text-[10px] text-gray-400 mt-0.5">BEFORE UPDATE OF Balance ON ACCOUNT: Blocks balance &lt; ₹1,000 for Savings via ORA-20001.</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">BEFORE UPDATE OF Balance ON ACCOUNT: Blocks balance &lt;
+                  ₹1,000 for Savings via ORA-20001.</p>
               </div>
               <div class="p-2 rounded-lg bg-inset border border-border-card/60">
                 <p class="font-mono text-emerald-400 text-[11px] font-semibold">trg_auto_complaint_resolution</p>
-                <p class="text-[10px] text-gray-400 mt-0.5">BEFORE UPDATE OF Status ON COMPLAINT: Automatically sets Resolution_Date := SYSDATE on 'Resolved'.</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">BEFORE UPDATE OF Status ON COMPLAINT: Automatically sets
+                  Resolution_Date := SYSDATE on 'Resolved'.</p>
               </div>
             </div>
           </div>
           <div class="mt-4 flex gap-2">
-            <button onclick="testMinBalanceBreach()" class="flex-1 py-2 bg-inset hover:bg-card border border-red-500/30 text-red-300 rounded-xl text-[11px] font-mono text-center transition">
+            <button onclick="testMinBalanceBreach()"
+              class="flex-1 py-2 bg-inset hover:bg-card border border-red-500/30 text-red-300 rounded-xl text-[11px] font-mono text-center transition">
               Trigger 1 Breach
             </button>
-            <button onclick="testComplaintResolutionTrigger()" class="flex-1 py-2 bg-inset hover:bg-card border border-emerald-500/30 text-emerald-300 rounded-xl text-[11px] font-mono text-center transition">
+            <button onclick="testComplaintResolutionTrigger()"
+              class="flex-1 py-2 bg-inset hover:bg-card border border-emerald-500/30 text-emerald-300 rounded-xl text-[11px] font-mono text-center transition">
               Trigger 2 Auto-Date
             </button>
           </div>
@@ -1144,15 +1331,18 @@
   <!-- =========================================================================
        COLLAPSIBLE BOTTOM TERMINAL: LIVE ORACLE EXECUTION INSPECTOR
        ========================================================================= -->
-  <footer id="flow-drawer" class="fixed bottom-0 left-0 right-0 z-40 bg-[#0B120F] border-t border-border-card transition-all duration-300 shadow-2xl flex flex-col">
+  <footer id="flow-drawer"
+    class="fixed bottom-0 left-0 right-0 z-40 bg-[#0B120F] border-t border-border-card transition-all duration-300 shadow-2xl flex flex-col">
     <!-- Collapsible Bar Header -->
-    <div onclick="toggleFlowDrawer()" class="px-6 py-2.5 flex items-center justify-between cursor-pointer hover:bg-card/40 transition select-none">
+    <div onclick="toggleFlowDrawer()"
+      class="px-6 py-2.5 flex items-center justify-between cursor-pointer hover:bg-card/40 transition select-none">
       <div class="flex items-center gap-3">
         <div class="flex items-center gap-1.5 font-mono text-xs font-semibold text-emerald-accent">
           <span class="w-2 h-2 rounded-full bg-emerald-400 status-pulse"></span>
           <span>&gt;_ Live Oracle Execution Inspector</span>
         </div>
-        <span id="terminal-badge-summary" class="hidden sm:inline-block text-[11px] font-mono text-gray-400 truncate max-w-md">
+        <span id="terminal-badge-summary"
+          class="hidden sm:inline-block text-[11px] font-mono text-gray-400 truncate max-w-md">
           Ready for interactive database operations
         </span>
       </div>
@@ -1220,12 +1410,14 @@
       <div class="nola-inset p-3.5 flex flex-col gap-2">
         <div class="flex items-center justify-between text-xs font-mono text-gray-400">
           <span>Executed SQL / PL/SQL Block</span>
-          <button onclick="copyExecutedSql()" class="flex items-center gap-1 text-[11px] text-gray-400 hover:text-emerald-accent transition">
+          <button onclick="copyExecutedSql()"
+            class="flex items-center gap-1 text-[11px] text-gray-400 hover:text-emerald-accent transition">
             <i data-lucide="copy" class="w-3.5 h-3.5"></i>
             <span id="copy-sql-text">Copy SQL</span>
           </button>
         </div>
-        <pre id="flow-raw-sql" class="font-mono text-xs text-emerald-400/90 whitespace-pre-wrap break-all bg-[#080D0B] p-3 rounded-lg border border-border-card max-h-32 overflow-y-auto">-- SQL commands will appear here in real time as actions are performed</pre>
+        <pre id="flow-raw-sql"
+          class="font-mono text-xs text-emerald-400/90 whitespace-pre-wrap break-all bg-[#080D0B] p-3 rounded-lg border border-border-card max-h-32 overflow-y-auto">-- SQL commands will appear here in real time as actions are performed</pre>
       </div>
     </div>
   </footer>
@@ -1234,7 +1426,8 @@
        MODAL 1: NEW FUND TRANSFER MODAL
        ========================================================================= -->
   <div id="transferModal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden">
-    <div class="nola-card w-full max-w-lg p-6 shadow-2xl border border-border-card flex flex-col gap-5 animate-in fade-in zoom-in-95 duration-150">
+    <div
+      class="nola-card w-full max-w-lg p-6 shadow-2xl border border-border-card flex flex-col gap-5 animate-in fade-in zoom-in-95 duration-150">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-lg bg-sidebar-active flex items-center justify-center text-emerald-accent">
@@ -1253,30 +1446,41 @@
       <div class="flex flex-col gap-3.5 text-xs">
         <div>
           <label class="text-[10px] font-mono text-gray-400">Source Account</label>
-          <select id="transfer-src-account" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-xs focus:border-emerald-accent outline-none">
+          <select id="transfer-src-account"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-xs focus:border-emerald-accent outline-none">
             <!-- Populated via JS -->
           </select>
         </div>
 
         <div>
           <label class="text-[10px] font-mono text-gray-400">Registered Beneficiary</label>
-          <select id="transfer-beneficiary" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white text-xs focus:border-emerald-accent outline-none">
+          <select id="transfer-beneficiary"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white text-xs focus:border-emerald-accent outline-none">
             <!-- Populated via JS -->
           </select>
         </div>
 
         <div>
           <label class="text-[10px] font-mono text-gray-400">Transfer Amount (₹)</label>
-          <input id="transfer-amount" type="number" step="100" value="5000" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-sm font-semibold focus:border-emerald-accent outline-none">
+          <input id="transfer-amount" type="number" step="100" value="5000"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-sm font-semibold focus:border-emerald-accent outline-none">
         </div>
 
         <div>
           <label class="text-[10px] font-mono text-gray-400 mb-1.5 block">Transfer Mode</label>
           <div class="grid grid-cols-4 gap-2">
-            <button type="button" onclick="selectTransferMode('UPI')" class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-emerald-500 bg-sidebar-active text-emerald-accent text-center" data-mode="UPI">UPI</button>
-            <button type="button" onclick="selectTransferMode('NEFT')" class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center" data-mode="NEFT">NEFT</button>
-            <button type="button" onclick="selectTransferMode('RTGS')" class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center" data-mode="RTGS">RTGS</button>
-            <button type="button" onclick="selectTransferMode('IMPS')" class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center" data-mode="IMPS">IMPS</button>
+            <button type="button" onclick="selectTransferMode('UPI')"
+              class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-emerald-500 bg-sidebar-active text-emerald-accent text-center"
+              data-mode="UPI">UPI</button>
+            <button type="button" onclick="selectTransferMode('NEFT')"
+              class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center"
+              data-mode="NEFT">NEFT</button>
+            <button type="button" onclick="selectTransferMode('RTGS')"
+              class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center"
+              data-mode="RTGS">RTGS</button>
+            <button type="button" onclick="selectTransferMode('IMPS')"
+              class="mode-btn px-2 py-2 rounded-xl text-xs font-mono font-medium border border-border-card bg-inset text-gray-300 hover:border-emerald-accent text-center"
+              data-mode="IMPS">IMPS</button>
           </div>
         </div>
 
@@ -1284,19 +1488,23 @@
         <div class="p-3 rounded-xl bg-red-950/20 border border-red-900/30 flex items-center justify-between">
           <div>
             <p class="text-xs font-semibold text-red-300">Test Min-Balance Trigger</p>
-            <p class="text-[10px] text-red-400/70 font-mono">Simulate overdrawing below ₹1,000 to test trg_prevent_min_balance_breach</p>
+            <p class="text-[10px] text-red-400/70 font-mono">Simulate overdrawing below ₹1,000 to test
+              trg_prevent_min_balance_breach</p>
           </div>
-          <button onclick="presetTriggerBreach()" class="px-2.5 py-1 rounded-lg bg-red-900/40 hover:bg-red-900/70 text-red-200 border border-red-700/40 text-[10px] font-mono font-medium transition">
+          <button onclick="presetTriggerBreach()"
+            class="px-2.5 py-1 rounded-lg bg-red-900/40 hover:bg-red-900/70 text-red-200 border border-red-700/40 text-[10px] font-mono font-medium transition">
             Apply Preset
           </button>
         </div>
       </div>
 
       <div class="flex items-center justify-end gap-3 mt-2">
-        <button onclick="closeTransferModal()" class="px-4 py-2 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-400 hover:text-white transition">
+        <button onclick="closeTransferModal()"
+          class="px-4 py-2 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-400 hover:text-white transition">
           Cancel
         </button>
-        <button id="btn-submit-transfer" onclick="submitTransfer()" class="px-5 py-2 rounded-xl bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-2 transition">
+        <button id="btn-submit-transfer" onclick="submitTransfer()"
+          class="px-5 py-2 rounded-xl bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-2 transition">
           <i data-lucide="send" class="w-3.5 h-3.5"></i>
           <span>Execute Transfer</span>
         </button>
@@ -1308,7 +1516,8 @@
        MODAL 2: PAY EMI MODAL
        ========================================================================= -->
   <div id="emiModal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden">
-    <div class="nola-card w-full max-w-md p-6 shadow-2xl border border-border-card flex flex-col gap-5 animate-in fade-in zoom-in-95 duration-150">
+    <div
+      class="nola-card w-full max-w-md p-6 shadow-2xl border border-border-card flex flex-col gap-5 animate-in fade-in zoom-in-95 duration-150">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-lg bg-sidebar-active flex items-center justify-center text-emerald-accent">
@@ -1327,19 +1536,22 @@
       <div class="flex flex-col gap-3.5 text-xs">
         <div>
           <label class="text-[10px] font-mono text-gray-400">Select Loan</label>
-          <select id="emi-loan-select" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-xs focus:border-emerald-accent outline-none">
+          <select id="emi-loan-select"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-xs focus:border-emerald-accent outline-none">
             <!-- Populated via JS -->
           </select>
         </div>
 
         <div>
           <label class="text-[10px] font-mono text-gray-400">Installment Amount (₹)</label>
-          <input id="emi-amount" type="number" step="500" value="10000" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-sm font-semibold focus:border-emerald-accent outline-none">
+          <input id="emi-amount" type="number" step="500" value="10000"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white font-mono text-sm font-semibold focus:border-emerald-accent outline-none">
         </div>
 
         <div>
           <label class="text-[10px] font-mono text-gray-400">Payment Mode</label>
-          <select id="emi-mode" class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white text-xs focus:border-emerald-accent outline-none">
+          <select id="emi-mode"
+            class="w-full mt-1 p-2.5 bg-inset border border-border-card rounded-xl text-white text-xs focus:border-emerald-accent outline-none">
             <option value="UPI">UPI</option>
             <option value="NEFT">NEFT</option>
             <option value="Auto-Debit">Auto-Debit</option>
@@ -1349,10 +1561,12 @@
       </div>
 
       <div class="flex items-center justify-end gap-3 mt-2">
-        <button onclick="closeEmiModal()" class="px-4 py-2 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-400 hover:text-white transition">
+        <button onclick="closeEmiModal()"
+          class="px-4 py-2 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-400 hover:text-white transition">
           Cancel
         </button>
-        <button onclick="submitEmiPayment()" class="px-5 py-2 rounded-xl bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-2 transition">
+        <button onclick="submitEmiPayment()"
+          class="px-5 py-2 rounded-xl bg-btn-primary hover:bg-[#20493c] text-emerald-light border border-emerald-500/30 text-xs font-semibold flex items-center gap-2 transition">
           <i data-lucide="check" class="w-3.5 h-3.5"></i>
           <span>Process EMI</span>
         </button>
@@ -1364,15 +1578,18 @@
        MODAL 3: BRANCH CURSOR AUDIT REPORT MODAL
        ========================================================================= -->
   <div id="cursorModal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden">
-    <div class="nola-card w-full max-w-4xl p-6 shadow-2xl border border-border-card flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] overflow-hidden">
+    <div
+      class="nola-card w-full max-w-4xl p-6 shadow-2xl border border-border-card flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] overflow-hidden">
       <div class="flex items-center justify-between border-b border-border-card/60 pb-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg bg-purple-950/40 border border-purple-500/30 flex items-center justify-center text-purple-400">
+          <div
+            class="w-8 h-8 rounded-lg bg-purple-950/40 border border-purple-500/30 flex items-center justify-center text-purple-400">
             <i data-lucide="cpu" class="w-4 h-4"></i>
           </div>
           <div>
             <h3 class="text-base font-bold text-white">Branch Performance Audit Report</h3>
-            <p class="text-xs text-gray-400 font-mono">Explicit Cursor: cur_branch_performance in sp_branch_audit_cursor</p>
+            <p class="text-xs text-gray-400 font-mono">Explicit Cursor: cur_branch_performance in sp_branch_audit_cursor
+            </p>
           </div>
         </div>
         <button onclick="closeCursorModal()" class="text-gray-400 hover:text-white transition">
@@ -1385,9 +1602,11 @@
         <p class="text-xs text-gray-400 py-10 text-center">Loading audit report from Oracle...</p>
       </div>
 
-      <div class="flex items-center justify-between pt-3 border-t border-border-card/60 text-xs font-mono text-gray-500">
+      <div
+        class="flex items-center justify-between pt-3 border-t border-border-card/60 text-xs font-mono text-gray-500">
         <span>Iterates across 10 Branches with OPEN, FETCH, CLOSE</span>
-        <button onclick="closeCursorModal()" class="px-4 py-1.5 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-300 hover:text-white transition">
+        <button onclick="closeCursorModal()"
+          class="px-4 py-1.5 rounded-xl border border-border-card bg-inset text-xs font-medium text-gray-300 hover:text-white transition">
           Close Report
         </button>
       </div>
@@ -1397,4 +1616,5 @@
   <!-- Custom Dashboard Script -->
   <script src="/static/js/dashboard.js"></script>
 </body>
+
 </html>
